@@ -52,6 +52,7 @@
       "title": "OperationPulse Frontend",
       "category": "Web Development",
       "year": "2026",
+      "featured": false,
       "description": "Static frontend site with student registration, authentication, and verification system. Built with HTML and deployed via GitHub Pages.",
       "tags": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
       "repo": "https://github.com/dilshadcodes/OperationPulse_Frontend",
