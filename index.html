@@ -38,9 +38,12 @@
   color-scheme: dark;
 }
 
-html, body { user-select: none; -webkit-user-select: none; }
+html, body { user-select: none; -webkit-user-select: none; overflow-x: hidden; }
 
 * { box-sizing: border-box; -webkit-touch-callout: none; }
+
+html { scrollbar-width: none; -ms-overflow-style: none; }
+::-webkit-scrollbar { display: none; }
 
 body {
   margin: 0;
