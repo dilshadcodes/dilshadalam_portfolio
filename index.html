@@ -60,7 +60,7 @@ body {
 .sections { display: flex; flex-direction: column; gap: 32px; }
 [hidden] { display: none !important; }
 
-/* ---------- Toolbar (theme toggle + optional resume button) ---------- */
+/* toolbar */
 .toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
 .theme {
   font-family: var(--font-body); font-size: 13px; font-weight: 600;
@@ -88,7 +88,7 @@ body {
 .cta svg { width: 16px; height: 16px; display: block; }
 .cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* ---------- Header: name + headline, centered ---------- */
+/* header */
 header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
 h1 {
   font-family: var(--font-display);
@@ -116,7 +116,7 @@ h1 {
 }
 .status.error { color: var(--accent); }
 
-/* ---------- Sections ---------- */
+/* sections */
 .sec { display: flex; flex-direction: column; gap: 16px; }
 .sec > h2 {
   margin: 0;
@@ -128,7 +128,7 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
-/* Profile: text left, photo right */
+/* profile */
 .profile { display: flex; align-items: flex-start; gap: 24px; }
 .profile-text { flex: 1; min-width: 0; }
 .profile-text p { margin: 0; font-size: 16px; line-height: 1.65; max-width: 62ch; }
@@ -142,7 +142,7 @@ h1 {
 }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Contact + links */
+/* contact */
 .rows { display: flex; flex-wrap: wrap; gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
 .rows li { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .ico {
@@ -155,7 +155,7 @@ h1 {
 .rows a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .rows a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-/* Skills */
+/* skills */
 .skills { display: flex; flex-direction: column; gap: 12px; }
 .skill-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .skill-label { flex: 0 0 190px; font-size: 13px; color: var(--muted); font-weight: 500; }
@@ -165,7 +165,7 @@ h1 {
   background: var(--surface); color: var(--ink); white-space: nowrap;
 }
 
-/* Education */
+/* education */
 .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
@@ -181,7 +181,7 @@ h1 {
   font-size: 12px; font-weight: 500; white-space: nowrap;
 }
 
-/* ---------- Project cards (same card as the PDF list) ---------- */
+/* projects */
 .list { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 0; list-style: none; }
 
 .pc{position:relative;display:flex;gap:12px;width:100%;padding:12px;list-style:none;background:var(--pc-bg);border:1px solid var(--pc-line);border-radius:10px;color:var(--pc-text);font-family:var(--font-body);
@@ -319,14 +319,12 @@ h1 {
 (function () {
   'use strict';
 
-  /* ------------------------------------------------------------------
-     All content comes from portfolio.json. Edit that file, not this one.
-     ------------------------------------------------------------------ */
+/* data comes from portfolio.json */
   const DATA_URL = "/portfolio.json";
 
   const content = document.getElementById("content");
 
-  /* Icons used for contact rows, links and buttons (static, trusted markup) */
+  /* icons */
   const SVG = (inner) =>
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
   const ICONS = {
@@ -343,7 +341,7 @@ h1 {
   };
   const icon = (type) => ICONS[type] || ICONS.link;
 
-  /* ---------- helpers ---------- */
+  /* helpers */
   function h(tag, cls, text) {
     const el = document.createElement(tag);
     if (cls) el.className = cls;
@@ -351,7 +349,7 @@ h1 {
     return el;
   }
 
-  // Only allow http(s), mailto, tel and relative paths. Blocks javascript: etc.
+  // safe url schemes
   function safeUrl(u) {
     if (!u) return null;
     const s = String(u).trim();
@@ -370,7 +368,7 @@ h1 {
     return a;
   }
 
-  // Bold the listed keywords inside a text string (safe: DOM nodes, no innerHTML).
+  // highlight keywords
   function appendHighlighted(el, text, words) {
     const list = (words || []).filter(Boolean);
     if (!list.length) { el.textContent = text; return; }
@@ -394,7 +392,7 @@ h1 {
     content.appendChild(h("p", "status" + (isError ? " error" : ""), message));
   }
 
-  /* ---------- sections ---------- */
+  /* builders */
   function buildProfile(data) {
     const profile = data.profile || {};
     const summary = profile.summary || "";
@@ -459,7 +457,7 @@ h1 {
     const sec = section(title || "Skills");
     const wrap = h("div", "skills");
     skills.forEach((group) => {
-      // A plain string is also accepted as a single skill
+      // string = single skill
       const g = typeof group === "string" ? { items: [group] } : group;
       const row = h("div", "skill-row");
       if (g.label) row.appendChild(h("span", "skill-label", g.label));
@@ -494,7 +492,7 @@ h1 {
   function buildProjectCard(item) {
     const li = h("li", "pc");
 
-    /* thumbnail */
+    /* thumb */
     const thumb = h("div", "pc-thumb");
     const paper = h("div", "pc-paper");
     paper.appendChild(h("b", "", item.title));
@@ -565,7 +563,7 @@ h1 {
     return sec;
   }
 
-  /* ---------- render ---------- */
+  /* render */
   function render(data) {
     const site = data.site || {};
     if (site.title || data.name) document.title = site.title || data.name;
@@ -574,14 +572,14 @@ h1 {
       if (m) m.setAttribute("content", site.description);
     }
 
-    // Header (centered)
+    // header
     const hero = document.getElementById("hero");
     document.getElementById("name").textContent = data.name || "";
     document.getElementById("headline").textContent = data.headline || "";
     document.getElementById("headline").hidden = !data.headline;
     hero.hidden = false;
 
-    // Optional resume button beside the theme toggle
+    // resume button
     const resumeUrl = data.resume && safeUrl(data.resume.url);
     if (resumeUrl) {
       const a = makeLink("cta", resumeUrl);
@@ -620,7 +618,7 @@ h1 {
       );
     });
 
-  /* ---------- Theme toggle (follows the device until you press the button) ---------- */
+  /* theme toggle */
   const root = document.documentElement;
   try {
     const saved = localStorage.getItem("theme");
