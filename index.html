@@ -621,6 +621,22 @@ h1 {
     { passive: false }
   );
 
+  /* block desktop zoom: ctrl/cmd + wheel */
+  document.addEventListener(
+    "wheel",
+    (e) => {
+      if (e.ctrlKey || e.metaKey) e.preventDefault();
+    },
+    { passive: false }
+  );
+
+  /* block desktop zoom: ctrl/cmd + +, -, 0 */
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "+" || e.key === "=" || e.key === "-" || e.key === "0")) {
+      e.preventDefault();
+    }
+  });
+
   fetch(DATA_URL, { cache: "no-cache" })
     .then((res) => {
       if (!res.ok) throw new Error("HTTP " + res.status);
