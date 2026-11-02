@@ -596,8 +596,8 @@ h1 {
       buildIconRows(labels.contact || "Contact", data.contact, "value"),
       buildSkills(data.skills, labels.skills),
       buildEducation(data.education, labels.education),
-      buildIconRows(labels.links || "Other Links", data.links, "label"),
-      buildProjects(data.projects, labels.projects)
+      buildProjects(data.projects, labels.projects),
+      buildIconRows(labels.links || "Other Links", data.links, "label")
     ].filter(Boolean);
 
     content.innerHTML = "";
