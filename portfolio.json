@@ -21,13 +21,11 @@
   ],
 
   "skills": [
-    { "label": "Foundations",              "items": ["Linux", "Bash", "Python", "SQL"] },
-    { "label": "Version control and CI",   "items": ["Git", "GitHub", "GitHub Actions"] },
-    { "label": "Containers",               "items": ["Docker", "Docker Compose", "Kubernetes"] },
-    { "label": "Cloud and infrastructure", "items": ["AWS", "Terraform", "Ansible"] },
-    { "label": "Networking",               "items": ["TCP/IP", "DNS", "SSH", "Nginx", "SSL/TLS"] },
-    { "label": "Observability",            "items": ["Prometheus", "Grafana"] },
-    { "label": "Practices",                "items": ["Automated Deployment", "Monitoring", "Security", "Logging", "Rollbacks", "Backup", "Recovery"] }
+    { "label": "Foundations",           "items": ["Python", "HTML", "CSS", "JavaScript", "Bash", "SQL"] },
+    { "label": "Version Control & CI",  "items": ["Git", "GitHub", "GitHub Actions"] },
+    { "label": "Frontend Development",  "items": ["HTML5", "CSS3", "JavaScript", "TypeScript"] },
+    { "label": "Systems Programming",   "items": ["C", "Python"] },
+    { "label": "Practices",             "items": ["Static Site Deployment", "CI/CD Pipelines", "Automated Testing", "Git Workflow"] }
   ],
 
   "education": [
@@ -51,38 +49,59 @@
 
   "projects": [
     {
-      "title": "Automated CI/CD Pipeline for a Dockerized App",
-      "category": "DevOps",
+      "title": "OperationPulse Frontend",
+      "category": "Web Development",
       "year": "2026",
       "featured": true,
-      "description": "GitHub Actions workflow that tests, builds and pushes a Docker image, then deploys it to a server over SSH with automatic rollback on failed health checks.",
-      "tags": ["GitHub Actions", "Docker", "Nginx"],
-      "repo": "https://github.com/dilshadcodes/cicd-docker-pipeline",
+      "description": "Static frontend site with student registration, authentication, and verification system. Built with HTML and deployed via GitHub Pages.",
+      "tags": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "repo": "https://github.com/dilshadcodes/OperationPulse_Frontend",
       "demo": ""
     },
     {
-      "title": "AWS Infrastructure with Terraform",
-      "category": "Cloud",
+      "title": "GitHub Actions Lab",
+      "category": "DevOps",
       "year": "2026",
-      "description": "Reusable Terraform modules that provision a VPC, EC2 instances and security groups, with remote state and a one-command teardown.",
-      "tags": ["AWS", "Terraform", "Ansible"],
-      "repo": "https://github.com/dilshadcodes/aws-terraform-infra"
+      "description": "CI/CD pipeline using GitHub Actions to run automated tests on Python code. Includes workflow configuration and test suites.",
+      "tags": ["GitHub Actions", "Python", "CI/CD", "Testing"],
+      "repo": "https://github.com/dilshadcodes/actions-lab",
+      "demo": ""
     },
     {
-      "title": "Monitoring Stack with Prometheus and Grafana",
-      "category": "Monitoring",
-      "year": "2025",
-      "description": "Docker Compose stack that collects host and container metrics, shows them on Grafana dashboards and sends alerts when thresholds are crossed.",
-      "tags": ["Prometheus", "Grafana", "Docker Compose"],
-      "repo": "https://github.com/dilshadcodes/monitoring-stack"
+      "title": "dilshadcodes.github.io",
+      "category": "Web Development",
+      "year": "2026",
+      "description": "Personal portfolio website built with HTML, hosted on GitHub Pages.",
+      "tags": ["HTML", "GitHub Pages"],
+      "repo": "https://github.com/dilshadcodes/dilshadcodes.github.io",
+      "demo": "https://dilshadcodes.github.io"
     },
     {
-      "title": "Kubernetes Deployment Starter",
-      "category": "Containers",
-      "year": "2025",
-      "description": "Manifests for deploying a small web service on Kubernetes with rolling updates, readiness probes and TLS termination.",
-      "tags": ["Kubernetes", "Docker", "SSL/TLS", "Linux"],
-      "repo": "https://github.com/dilshadcodes/k8s-starter"
+      "title": "C-Code-Space",
+      "category": "Systems Programming",
+      "year": "2026",
+      "description": "C programming exercises and projects covering core systems programming concepts.",
+      "tags": ["C"],
+      "repo": "https://github.com/dilshadcodes/C-Code-Space",
+      "demo": ""
+    },
+    {
+      "title": "managing_pass",
+      "category": "Security",
+      "year": "2026",
+      "description": "Password management utility written in Python.",
+      "tags": ["Python", "Security"],
+      "repo": "https://github.com/dilshadcodes/managing_pass",
+      "demo": ""
+    },
+    {
+      "title": "project_python",
+      "category": "Software Development",
+      "year": "2026",
+      "description": "Python-based application project.",
+      "tags": ["Python"],
+      "repo": "https://github.com/dilshadcodes/project_python",
+      "demo": ""
     }
   ]
 }
