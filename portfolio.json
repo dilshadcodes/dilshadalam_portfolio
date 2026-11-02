@@ -10,8 +10,8 @@
   "resume": null,
 
   "profile": {
-    "summary": "Driven Computer Engineering student with a strong focus on DevOps, cloud infrastructure and backend automation. Proficient in Linux, Python, SQL, Docker, Kubernetes, AWS and modern CI/CD tooling like GitHub Actions and Terraform. Experienced in building automated deployment pipelines, configuring network security, and implementing system monitoring and logging solutions. Eager to contribute practical infrastructure and engineering expertise to an innovative tech team.",
-    "highlights": ["Linux", "Python", "SQL", "Docker", "Kubernetes", "AWS", "GitHub Actions", "Terraform"]
+    "summary": "Computer Engineering student exploring tech and science. Builds static websites and web applications with HTML, CSS, JavaScript and TypeScript, and writes Python and C programs for systems and automation tasks. Comfortable with Git, GitHub Actions, SQL and Linux command-line tools. Focused on clean, working code and shipping small, useful projects.",
+    "highlights": ["Python", "HTML", "CSS", "JavaScript", "TypeScript", "C", "Bash", "SQL", "Git", "GitHub Actions"]
   },
 
   "contact": [
