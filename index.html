@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Portfolio</title>
 <meta name="description" content="Portfolio">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -38,7 +38,9 @@
   color-scheme: dark;
 }
 
-* { box-sizing: border-box; }
+html, body { user-select: none; -webkit-user-select: none; }
+
+* { box-sizing: border-box; -webkit-touch-callout: none; }
 
 body {
   margin: 0;
@@ -51,8 +53,8 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   touch-action: manipulation;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 * { -webkit-tap-highlight-color: transparent; }
 
@@ -603,6 +605,21 @@ h1 {
     parts.forEach((p) => frag.appendChild(p));
     content.appendChild(frag);
   }
+
+  /* block copy / cut / paste / context menu */
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+  document.addEventListener("copy", (e) => e.preventDefault());
+  document.addEventListener("cut", (e) => e.preventDefault());
+  document.addEventListener("paste", (e) => e.preventDefault());
+
+  /* block pinch-to-zoom */
+  document.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches.length > 1) e.preventDefault();
+    },
+    { passive: false }
+  );
 
   fetch(DATA_URL, { cache: "no-cache" })
     .then((res) => {
